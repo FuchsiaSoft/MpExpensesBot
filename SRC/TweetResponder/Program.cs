@@ -99,7 +99,7 @@ namespace TweetResponder
                         
                     }
 
-                    Thread.Sleep(300000);
+                    Thread.Sleep(600000);
 
                 } while (true);
 
@@ -197,6 +197,14 @@ namespace TweetResponder
             }
 
             //if it gets here, then didn't match anything
+            SendTweetOptions options = new SendTweetOptions()
+            {
+                InReplyToStatusId = twitterStatus.Id,
+                Status = "@" + twitterStatus.User.ScreenName + " sorry we couldn't find that MP, check https://goo.gl/YPdS7C for valid MPs"
+            };
+
+            service.SendTweet(options);
+
             Properties.Settings.Default.LastRespondedTweet = twitterStatus.Id;
             Properties.Settings.Default.Save();
 
