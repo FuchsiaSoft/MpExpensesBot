@@ -106,6 +106,7 @@ namespace TweetyMp
 
             if (previousTweeterName != null)
             {
+                builder.Append("@");
                 builder.Append(previousTweeterName + " ");
             }
 

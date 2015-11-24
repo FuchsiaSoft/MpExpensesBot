@@ -91,7 +91,7 @@ namespace TweetyMp
                     //do nothing at the minute
                 }
 
-                Thread.Sleep(180000);
+                Thread.Sleep(900000);
 
             } while (true);
         }
@@ -129,7 +129,7 @@ namespace TweetyMp
             IEnumerable<TwitterStatus> myTweets =
                 service.ListTweetsMentioningMe(options);
 
-            return myTweets.FirstOrDefault();
+            return myTweets.OrderBy(o=>o.Id).FirstOrDefault();
         }
 
         private static void DoMainRandomLoop()
