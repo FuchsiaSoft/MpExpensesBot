@@ -122,8 +122,7 @@ namespace TweetyMp
 
             ListTweetsMentioningMeOptions options = new ListTweetsMentioningMeOptions()
             {
-                SinceId = lastTweetId,
-                Count = 1
+                SinceId = lastTweetId
             };
 
             IEnumerable<TwitterStatus> myTweets =
